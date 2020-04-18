@@ -14,6 +14,7 @@
 		419F737F244AE34100C7AD1B /* Simple_Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 419F737D244AE34100C7AD1B /* Simple_Note.xcdatamodeld */; };
 		419F7381244AE34100C7AD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 419F7380244AE34100C7AD1B /* Assets.xcassets */; };
 		419F7384244AE34100C7AD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 419F7382244AE34100C7AD1B /* LaunchScreen.storyboard */; };
+		419F7391244B4A9B00C7AD1B /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 419F7390244B4A9B00C7AD1B /* SDMiSaeng.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		419F7380244AE34100C7AD1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		419F7383244AE34100C7AD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		419F7385244AE34100C7AD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		419F7390244B4A9B00C7AD1B /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SDMiSaeng.ttf; path = fonts/SDMiSaeng.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		419F7373244AE34100C7AD1B /* Simple Note */ = {
 			isa = PBXGroup;
 			children = (
+				419F7390244B4A9B00C7AD1B /* SDMiSaeng.ttf */,
 				419F7374244AE34100C7AD1B /* AppDelegate.swift */,
 				419F7376244AE34100C7AD1B /* SceneDelegate.swift */,
 				419F7378244AE34100C7AD1B /* ViewController.swift */,
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419F7391244B4A9B00C7AD1B /* SDMiSaeng.ttf in Resources */,
 				419F7384244AE34100C7AD1B /* LaunchScreen.storyboard in Resources */,
 				419F7381244AE34100C7AD1B /* Assets.xcassets in Resources */,
 				419F737C244AE34100C7AD1B /* Main.storyboard in Resources */,
