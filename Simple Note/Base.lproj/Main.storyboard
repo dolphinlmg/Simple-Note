@@ -1,27 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="674-uu-C9h">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SDMiSaeng.ttf">
+            <string>SDMiSaeng</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--메모-->
+        <!--노트-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Simple_Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vnK-KK-8JI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="80" id="qo3-Ko-bPD" customClass="NoteTableViewCell" customModule="Simple_Note" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qo3-Ko-bPD" id="p2R-DG-rgy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnq-gw-HHb">
+                                                    <rect key="frame" x="15" y="11" width="38" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000.00.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scd-t1-XGU">
+                                                    <rect key="frame" x="15" y="44" width="87" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRr-oC-ldc">
+                                                    <rect key="frame" x="110" y="45" width="250" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="scd-t1-XGU" id="dXh-8c-Nkg"/>
+                                            <outlet property="detailLabel" destination="FRr-oC-ldc" id="jBL-bV-U7u"/>
+                                            <outlet property="titleLabel" destination="Bnq-gw-HHb" id="24v-lW-sC2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vnK-KK-8JI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="422-A3-Vlj"/>
+                            <constraint firstItem="vnK-KK-8JI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="J0n-v4-OFY"/>
+                            <constraint firstItem="vnK-KK-8JI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Jt9-74-2Mh"/>
+                            <constraint firstItem="vnK-KK-8JI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vy4-4C-heJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="메모" id="9ZE-1g-ZLR"/>
+                    <navigationItem key="navigationItem" title="노트" id="9ZE-1g-ZLR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iaA-Yt-x9g">
+                            <connections>
+                                <action selector="addButtonClicked:" destination="BYZ-38-t0r" id="qcO-pF-oJ2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="noteTableView" destination="vnK-KK-8JI" id="LKp-P2-yzZ"/>
+                        <segue destination="BBB-5g-5tz" kind="show" identifier="ShowMemo" id="g2W-sb-d7T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="835" y="137"/>
+            <point key="canvasLocation" x="834.39999999999998" y="136.69950738916256"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="l7E-u7-036">
+            <objects>
+                <viewController id="BBB-5g-5tz" customClass="MemoDetailViewController" customModule="Simple_Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PGf-vA-MYh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iNy-Yz-am4">
+                                <rect key="frame" x="16" y="53" width="382" height="41.666666666666657"/>
+                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZVm-HA-fbs">
+                                <rect key="frame" x="16" y="121" width="382" height="595"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BBB-5g-5tz" id="dZl-bI-3gq"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000.00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDu-6d-MCM">
+                                <rect key="frame" x="16" y="94.666666666666671" width="200" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="7EN-t0-xjD"/>
+                                    <constraint firstAttribute="width" constant="200" id="PGh-8S-Ft8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bDu-6d-MCM" firstAttribute="leading" secondItem="iNy-Yz-am4" secondAttribute="leading" id="Fpf-Z7-vHq"/>
+                            <constraint firstItem="Jme-YI-1g1" firstAttribute="trailing" secondItem="ZVm-HA-fbs" secondAttribute="trailing" constant="16" id="GSA-Lp-HL4"/>
+                            <constraint firstItem="bDu-6d-MCM" firstAttribute="top" secondItem="iNy-Yz-am4" secondAttribute="bottom" id="a9f-uq-dNi"/>
+                            <constraint firstItem="iNy-Yz-am4" firstAttribute="top" secondItem="Jme-YI-1g1" secondAttribute="top" constant="9" id="e3s-NO-c4I"/>
+                            <constraint firstItem="ZVm-HA-fbs" firstAttribute="leading" secondItem="Jme-YI-1g1" secondAttribute="leading" constant="16" id="jDe-ba-iia"/>
+                            <constraint firstItem="Jme-YI-1g1" firstAttribute="trailing" secondItem="iNy-Yz-am4" secondAttribute="trailing" constant="16" id="jvu-A5-hBU"/>
+                            <constraint firstItem="Jme-YI-1g1" firstAttribute="bottom" secondItem="ZVm-HA-fbs" secondAttribute="bottom" constant="20" id="qE5-KI-uCt"/>
+                            <constraint firstItem="ZVm-HA-fbs" firstAttribute="top" secondItem="bDu-6d-MCM" secondAttribute="bottom" constant="1.3300000000000001" id="qfz-Jr-6hq"/>
+                            <constraint firstItem="iNy-Yz-am4" firstAttribute="leading" secondItem="Jme-YI-1g1" secondAttribute="leading" constant="16" id="z1Q-xm-MHx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jme-YI-1g1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="R9C-7v-lo5"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="ZVm-HA-fbs" id="IWe-Gc-gpP"/>
+                        <outlet property="dateLabel" destination="bDu-6d-MCM" id="byV-Gv-VrU"/>
+                        <outlet property="titleTextField" destination="iNy-Yz-am4" id="YJ2-GU-TNX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3l4-YX-YxO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539.1304347826087" y="136.14130434782609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Fw-Iw-Mhl">
@@ -29,7 +154,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="674-uu-C9h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bmu-HF-ZqR">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
