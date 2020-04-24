@@ -41,19 +41,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addButtonClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "Add", message: "Something", preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default, handler: { action in
-            self.save(title: "Test", date: Date(), content: "testtest")
-            self.noteTableView.insertRows(at: [IndexPath(row: self.notesData.count - 1, section: 0)], with: .automatic)
-        })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(okay)
-        alert.addAction(cancel)
-        
-        self.present(alert, animated: true)
+        createNewMemo()
+        self.tableView(self.noteTableView, didSelectRowAt: IndexPath(row: 0, section: 0))
     }
 
+    func createNewMemo() {
+        self.save(title: "New Memo", date: Date(), content: "")
+        self.noteTableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
     // fetch all object
     func fetch() {
         self.notesData = CoreDataManager.shared.fetchObject(entityName: "Notes")!
@@ -68,7 +64,7 @@ class ViewController: UIViewController {
         note.setValue(content, forKey: "contents")
         
         CoreDataManager.shared.saveContext()
-        self.notesData.append(note)
+        self.notesData.insert(note, at: 0)
     }
     
     // delete object
@@ -86,6 +82,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell", for: indexPath) as! NoteTableViewCell
         let note = notesData[indexPath.row]
+        let str = note.contents!
+        let maxCount = 35
         
         cell.titleLabel.text = note.title
         
@@ -93,7 +91,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dateLabel.text = dateToString(note.date!)
         
         // TODO: cut string
-        cell.detailLabel.text = note.contents
+        if str.count < maxCount {
+            cell.detailLabel.text = str
+        } else {
+            cell.detailLabel.text = String(str[str.startIndex..<str.index(str.startIndex, offsetBy: maxCount)])
+        }
         
         return cell
     }
@@ -124,7 +126,9 @@ extension ViewController: DataShareDelegate {
     
     // send data protocol
     func sendData(memo: Notes, row: Int) {
-        self.notesData[row] = memo
+        //self.notesData[row] = memo
+        self.notesData.remove(at: row)
+        self.notesData.insert(memo, at: 0)
         CoreDataManager.shared.saveContext()
         self.noteTableView.reloadData()
     }

@@ -32,7 +32,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnq-gw-HHb">
-                                                    <rect key="frame" x="15" y="11" width="38" height="25"/>
+                                                    <rect key="frame" x="15" y="11" width="379" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="25"/>
                                                     <nil key="textColor"/>
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834.39999999999998" y="136.69950738916256"/>
+            <point key="canvasLocation" x="833.33333333333337" y="136.14130434782609"/>
         </scene>
         <!--Title-->
         <scene sceneID="l7E-u7-036">
@@ -100,6 +100,9 @@
                                 <rect key="frame" x="16" y="53" width="382" height="41.666666666666657"/>
                                 <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleFieldChanged:" destination="BBB-5g-5tz" eventType="editingChanged" id="Gef-5Z-Azl"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZVm-HA-fbs">
                                 <rect key="frame" x="16" y="121" width="382" height="595"/>

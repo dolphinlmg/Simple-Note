@@ -66,6 +66,8 @@ class CoreDataManager {
             }
         }
         
+        let sort = NSSortDescriptor(key: #keyPath(Notes.date), ascending: false)
+        fetchRequest?.sortDescriptors = [sort]
         var ret: [Notes]?
         
         do {

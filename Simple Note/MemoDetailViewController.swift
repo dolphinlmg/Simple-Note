@@ -29,10 +29,18 @@ class MemoDetailViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if self.isDataChanged { self.memoData?.date = Date() }
-        delegate?.sendData(memo: self.memoData!, row: self.indexPath.row)
+        if self.isDataChanged {
+            self.memoData?.title = self.titleTextField.text
+            self.memoData?.date = Date()
+            self.memoData?.contents = self.contentTextView.text
+            delegate?.sendData(memo: self.memoData!, row: self.indexPath.row)
+        }
     }
-
+    
+    @IBAction func titleFieldChanged(_ sender: Any) {
+        self.isDataChanged = true
+    }
+    
 }
 
 extension MemoDetailViewController: DataShareDelegate {
@@ -42,12 +50,12 @@ extension MemoDetailViewController: DataShareDelegate {
         self.indexPath.row = row
     }
     
-    
 }
 
 extension MemoDetailViewController: UITextViewDelegate {
+    
     func textViewDidChange(_ textView: UITextView) {
-        self.memoData?.contents = self.contentTextView.text
         self.isDataChanged = true
     }
+
 }
