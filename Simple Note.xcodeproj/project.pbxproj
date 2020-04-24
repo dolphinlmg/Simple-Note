@@ -104,8 +104,8 @@
 				41D7AA6D244F0E8A00A97785 /* Notes+CoreDataClass.swift */,
 				41D7AA6E244F0E8A00A97785 /* Notes+CoreDataProperties.swift */,
 				419F7398244C721900C7AD1B /* CoreDataManager.swift */,
-				419F737D244AE34100C7AD1B /* Simple_Note.xcdatamodeld */,
 				41429A6724516AA10097CCF0 /* DateController.swift */,
+				419F737D244AE34100C7AD1B /* Simple_Note.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

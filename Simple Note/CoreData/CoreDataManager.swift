@@ -24,6 +24,7 @@ class CoreDataManager {
         self.fetchRequest = nil
     }
     
+    // save current objects
     func saveContext() {
         guard let delegate = self.appDelegate else {
             return
@@ -32,6 +33,7 @@ class CoreDataManager {
         delegate.saveContext()
     }
     
+    // returns entity by name
     func getEntity(entityName name: String) -> NSEntityDescription? {
         guard let context = self.managedContext else {
             return nil
@@ -40,6 +42,7 @@ class CoreDataManager {
         return NSEntityDescription.entity(forEntityName: name, in: context)
     }
     
+    // returns new object in entity by name
     func getNewObject(entityName name: String) -> Notes? {
         guard let context = self.managedContext,
             let entity = self.getEntity(entityName: name) else {
@@ -49,10 +52,12 @@ class CoreDataManager {
         return Notes(entity: entity, insertInto: context)
     }
     
+    // returns fetch request of Notes
     func getFetchRequest(entityName name: String) -> NSFetchRequest<Notes> {
         return NSFetchRequest<Notes>(entityName: name)
     }
     
+    // returns objects by entity name
     func fetchObject(entityName name: String) -> [Notes]? {
         if self.fetchRequest == nil {
             self.fetchRequest = self.getFetchRequest(entityName: name)
@@ -72,6 +77,7 @@ class CoreDataManager {
         return ret
     }
     
+    // delete object in context
     func deleteObject(obj: Notes) {
         guard let context = self.managedContext else {
             return

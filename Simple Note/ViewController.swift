@@ -13,12 +13,12 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var noteTableView: UITableView!
     
-    
     var notesData: [Notes] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set delegate
         self.noteTableView.delegate = self
         self.noteTableView.dataSource = self
         
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         
     }
     
+    // show memo segue action
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowMemo" {
             let memoVC = segue.destination as! MemoDetailViewController
@@ -53,10 +54,12 @@ class ViewController: UIViewController {
         self.present(alert, animated: true)
     }
 
+    // fetch all object
     func fetch() {
         self.notesData = CoreDataManager.shared.fetchObject(entityName: "Notes")!
     }
     
+    // save new object
     func save(title: String, date: Date, content: String) {
         let note = CoreDataManager.shared.getNewObject(entityName: "Notes")!
         
@@ -68,6 +71,7 @@ class ViewController: UIViewController {
         self.notesData.append(note)
     }
     
+    // delete object
     func delete(obj: Notes) {
         CoreDataManager.shared.deleteObject(obj: obj);
     }
@@ -94,21 +98,35 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // row size
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
+    // cell selection action
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "ShowMemo", sender: indexPath as Any)
     }
     
+    // deleting cell
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.delete(obj: self.notesData[indexPath.row])
+            self.notesData.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 extension ViewController: DataShareDelegate {
+    
+    // send data protocol
     func sendData(memo: Notes, row: Int) {
         self.notesData[row] = memo
         CoreDataManager.shared.saveContext()
         self.noteTableView.reloadData()
     }
+    
 }

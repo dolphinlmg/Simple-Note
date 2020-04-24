@@ -10,5 +10,7 @@ import Foundation
 import CoreData
 
 protocol DataShareDelegate {
+    
     func sendData(memo: Notes, row: Int);
+    
 }
